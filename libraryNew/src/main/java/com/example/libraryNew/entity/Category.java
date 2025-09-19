@@ -14,14 +14,14 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
-    private List<Book> books;
+    private List<Book> book;
 
-    public List<Book> getBooks() {
-        return books;
+    public List<Book> getBook() {
+        return book;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setBook(List<Book> book) {
+        this.book = book;
     }
 
     public int getId() {

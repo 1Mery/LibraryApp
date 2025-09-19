@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name="kullanıcılar")
+@Table(name="Kullanıcılar")
 public class User {
 
     @Id
@@ -21,16 +21,13 @@ public class User {
     private String role;
 
     @ManyToOne
-    @JoinColumn(name = "members_id",nullable = false)
+    @JoinColumn(name = "member_id",nullable = false)
     private Member member;
 
     @ManyToOne
     @JoinColumn(name = "admin_id",nullable = false)
-    private Admin admins;
+    private Admin admin;
 
-    @OneToMany(mappedBy = "user")
-    @JsonIgnore
-    private List<User> users;
 
     public Member getMember() {
         return member;
@@ -40,28 +37,11 @@ public class User {
         this.member = member;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public Admin getAdmin() {
+        return admin;
     }
-
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public Member getMembers() {
-        return member;
-    }
-
-    public void setMembers(Member member) {
-        this.member = member;
-    }
-
-    public Admin getAdmins() {
-        return admins;
-    }
-
-    public void setAdmins(Admin admin) {
-        this.admins = admin;
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 
     public String getRole() {

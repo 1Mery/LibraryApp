@@ -1,6 +1,6 @@
 package com.example.libraryNew.service;
 
-import com.example.libraryNew.dto.response.BookResponse;
+import com.example.libraryNew.dto.response.book.BookResponse;
 import com.example.libraryNew.entity.Book;
 import com.example.libraryNew.repository.BookRepository;
 import org.springframework.stereotype.Service;
@@ -25,7 +25,7 @@ public class BookService {
             dto.setAuthor(book.getAuthor());
             dto.setIsbn(book.getIsbn());
             dto.setTitle(book.getTitle());
-            
         }
+        return null;
     }
 }

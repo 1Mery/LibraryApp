@@ -16,11 +16,11 @@ public class Rezervation {
     private int orderNo;
 
     @ManyToOne
-    @JoinColumn(name = "books_id",nullable = false)
+    @JoinColumn(name = "book_id",nullable = false)
     private Book book;
 
     @ManyToOne
-    @JoinColumn(name= "members_id",nullable = false)
+    @JoinColumn(name= "member_id",nullable = false)
     private Member member;
 
     public int getId() {
@@ -52,22 +52,22 @@ public class Rezervation {
     }
 
     public void setOrder(int order) {
-        this.orderNo = orderNo;
+        this.orderNo = order;
     }
 
-    public Book getBooks() {
+    public Book getBook() {
         return book;
     }
 
-    public void setBooks(Book book) {
+    public void setBook(Book book) {
         this.book = book;
     }
 
-    public Member getMembers() {
+    public Member getMember() {
         return member;
     }
 
-    public void setMembers(Member member) {
+    public void setMember(Member member) {
         this.member = member;
     }
 }

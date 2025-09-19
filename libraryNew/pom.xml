@@ -61,6 +61,12 @@
 			<version>1.6.3</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-validation</artifactId>
+			<version>3.5.5</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -76,7 +82,14 @@
 				<configuration>
 					<source>21</source>
 					<target>21</target>
-					<annotationProcessorPaths>...</annotationProcessorPaths>
+
+			    <annotationProcessorPaths>
+					<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct</artifactId>
+							<version>1.6.3</version>
+					</path>
+				</annotationProcessorPaths>
 				</configuration>
 			</plugin>
 
