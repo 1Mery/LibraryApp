@@ -15,7 +15,7 @@ public class Punish {
     private Borrow borrow;
 
     @ManyToOne
-    @JoinColumn(name="uye_id",nullable = false)
+    @JoinColumn(name="member_id",nullable = false)
     private Member member;
 
     public int getId() {
@@ -42,11 +42,11 @@ public class Punish {
         this.borrow = borrow;
     }
 
-    public Member getUyeler() {
+    public Member getMember() {
         return member;
     }
 
-    public void setUyeler(Member member) {
+    public void setMember(Member member) {
         this.member = member;
     }
 }

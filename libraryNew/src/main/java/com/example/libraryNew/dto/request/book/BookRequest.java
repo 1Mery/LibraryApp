@@ -1,21 +1,12 @@
-package com.example.libraryNew.dto.response;
+package com.example.libraryNew.dto.request.book;
 
-public class BookResponse {
-    private int id;
+public class BookRequest {
     private String title;
     private String author;
     private int isbn;
     private int printDate;
     private int pageNumber;
-    private String categoryName;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private int categoryId;
 
     public String getTitle() {
         return title;
@@ -57,11 +48,11 @@ public class BookResponse {
         this.pageNumber = pageNumber;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public int getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setCategoryId(int categoryId) {
+        this.categoryId = categoryId;
     }
 }
