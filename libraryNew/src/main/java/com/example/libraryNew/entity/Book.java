@@ -3,6 +3,7 @@ package com.example.libraryNew.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -14,9 +15,12 @@ public class Book {
     private int id;
     private String title;
     private String author;
-    private int isbn;
-    private int printDate;
+    private Long isbn;
+    private LocalDate printDate;
     private int pageNumber;
+    private int totalCopies;
+    private int availableCopies;
+
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
@@ -38,19 +42,19 @@ public class Book {
         this.category = category;
     }
 
-    public int getIsbn() {
+    public Long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(Long isbn) {
         this.isbn = isbn;
     }
 
-    public int getPrintDate() {
+    public LocalDate getPrintDate() {
         return printDate;
     }
 
-    public void setPrintDate(int printDate) {
+    public void setPrintDate(LocalDate printDate) {
         this.printDate = printDate;
     }
 
@@ -103,4 +107,19 @@ public class Book {
         this.author = author;
     }
 
+    public int getTotalCopies() {
+        return totalCopies;
+    }
+
+    public void setTotalCopies(int totalCopies) {
+        this.totalCopies = totalCopies;
+    }
+
+    public int getAvailableCopies() {
+        return availableCopies;
+    }
+
+    public void setAvailableCopies(int availableCopies) {
+        this.availableCopies = availableCopies;
+    }
 }

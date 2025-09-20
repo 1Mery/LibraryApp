@@ -33,7 +33,7 @@ public class CategoryController {
         return categoryService.add(createCategoryRequest);
     }
 
-    @PutMapping
+    @PutMapping("/update")
     public UpdatedCategoryResponse updateCategory(@RequestBody UpdateCategoryRequest updateCategoryRequest){
         return categoryService.updateCategory(updateCategoryRequest);
     }
