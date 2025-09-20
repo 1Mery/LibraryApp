@@ -1,23 +1,41 @@
 package com.example.libraryNew.dto.response.book;
 
+import jakarta.persistence.Column;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
-import org.hibernate.validator.constraints.Length;
 
-public class BookResponse {
+import java.time.LocalDate;
 
+public class UpdatedBookResponse {
     private int id;
     @NotBlank
     private String title;
     @NotBlank
     private String author;
-    @NotBlank
-    private int isbn;
-    private int printDate;
+    @Column(unique = true)
+    private Long isbn;
+    private LocalDate printDate;
     @Positive
     private int pageNumber;
     private String categoryName;
+    private int totalCopies;
+    private int availableCopies;
+
+    public int getTotalCopies() {
+        return totalCopies;
+    }
+
+    public void setTotalCopies(int totalCopies) {
+        this.totalCopies = totalCopies;
+    }
+
+    public int getAvailableCopies() {
+        return availableCopies;
+    }
+
+    public void setAvailableCopies(int availableCopies) {
+        this.availableCopies = availableCopies;
+    }
 
     public int getId() {
         return id;
@@ -43,19 +61,19 @@ public class BookResponse {
         this.author = author;
     }
 
-    public int getIsbn() {
+    public Long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(int isbn) {
+    public void setIsbn(Long isbn) {
         this.isbn = isbn;
     }
 
-    public int getPrintDate() {
+    public LocalDate getPrintDate() {
         return printDate;
     }
 
-    public void setPrintDate(int printDate) {
+    public void setPrintDate(LocalDate printDate) {
         this.printDate = printDate;
     }
 

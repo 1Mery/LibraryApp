@@ -19,8 +19,8 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public String handleRunTimeException(){
-        return "Runtime Error";
+    public String handleRunTimeException(RuntimeException ex){
+        return ex.getMessage();
     }
 
     @ExceptionHandler(BusinessException.class)

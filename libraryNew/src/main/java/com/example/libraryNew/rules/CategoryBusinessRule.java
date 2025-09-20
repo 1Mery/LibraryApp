@@ -20,7 +20,8 @@ public class CategoryBusinessRule {
     }
 
     public void categoryShouldNotExistWithSameName(String name){
-        Category category= categoryRepository.findTop1ByNameIgnoreCase(name).orElseThrow(null);
+        Category category= categoryRepository.findTop1ByNameIgnoreCase(name)
+                .orElseThrow(() -> new RuntimeException("Category not found"));
         if (category!=null){
             throw new BusinessException("Category with name"+ name+ "already exists");
         }
