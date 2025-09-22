@@ -1,9 +1,14 @@
 package com.example.libraryNew.dto.request.member;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
+
 public class UpdateMemberRequest {
     private String name;
+    @Email
     private String email;
     private String password;
+    @Pattern(regexp = "\\+90\\d{10}", message = "Phone number must be in +90XXXXXXXXXX format")
     private int tel;
 
     public String getName() {

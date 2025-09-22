@@ -7,7 +7,6 @@ public class GetListMemberResponse {
     private int tel;
     private String memberLevel;
     private String memberStatus;
-    private  String password;
 
     public int getId() {
         return id;
@@ -57,11 +56,4 @@ public class GetListMemberResponse {
         this.memberStatus = memberStatus;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }

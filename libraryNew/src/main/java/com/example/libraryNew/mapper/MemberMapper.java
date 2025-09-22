@@ -64,6 +64,10 @@ public class MemberMapper {
             GetListMemberResponse getListMemberResponse1 = new GetListMemberResponse();
             getListMemberResponse1.setId(m.getId());
             getListMemberResponse1.setName(m.getName());
+            getListMemberResponse1.setMail(m.getEmail());
+            getListMemberResponse1.setTel(m.getTel());
+            getListMemberResponse1.setMemberLevel(m.getMemberLevel().name());
+            getListMemberResponse1.setMemberStatus(m.getMemberStatus().name());
             getListMemberResponse.add(getListMemberResponse1);
         }
         return getListMemberResponse;

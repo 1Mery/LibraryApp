@@ -29,13 +29,13 @@ public class MemberBusinessRule {
         }
     }
 
-    public void memberShouldBeActive(Member member) {
-        if (!MemberStatus.ACTIVE.equals(member.getMemberStatus())) {
+    public void memberShouldBeActive(MemberStatus memberStatus) {
+        if (memberStatus != MemberStatus.ACTIVE) {
             throw new BusinessException("Member is not active");
         }
     }
 
-    /*public void memberShouldNotHaveUnpaidPunish(Member member) {
+    /*/public void memberShouldNotHaveUnpaidPunish(Member member) {
         for (Punish punish : member.getPunish()) {
             if (!punish.isPaid()) {
                 throw new BusinessException("Member has unpaid punish");

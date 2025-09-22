@@ -4,6 +4,7 @@ import com.example.libraryNew.dto.request.member.CreateMemberRequest;
 import com.example.libraryNew.dto.request.member.UpdateMemberRequest;
 import com.example.libraryNew.dto.response.member.*;
 import com.example.libraryNew.entity.*;
+import com.example.libraryNew.enums.MemberStatus;
 import com.example.libraryNew.mapper.MemberMapper;
 import com.example.libraryNew.repository.MemberRepository;
 import com.example.libraryNew.rules.MemberBusinessRule;
@@ -52,6 +53,12 @@ public class MemberService {
 
         memberRepository.delete(member);
         return memberMapper.toDeletedMemberResponse(member);
+    }
+
+    public List<GetListMemberResponse> getListMemberStatus(MemberStatus memberStatus,String email){
+        List<Member> members = memberRepository.findByMemberStatusAndMail(memberStatus,email);
+
+        return memberMapper.toGetListMemberResponse(members);
     }
 
 }
