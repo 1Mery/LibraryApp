@@ -18,13 +18,13 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/title")
-    public List<GetListBookResponse> getAllBook(@RequestBody String title){
+    @GetMapping("/title/{title}")
+    public List<GetListBookResponse> getAllBook(@PathVariable String title){
         return bookService.getAllBook(title);
     }
 
-    @PostMapping
-    public CreatedBookResponse addBook(CreateBookRequest createBookRequest){
+    @PostMapping("/title")
+    public CreatedBookResponse addBook(@RequestBody CreateBookRequest createBookRequest){
         return bookService.addBook(createBookRequest);
     }
 

@@ -24,9 +24,14 @@ public class CategoryService {
         this.categoryMapper= categoryMapper;
     }
 
-    public List<GetListCategoryResponse> getList(){
-        List<Category> categories= categoryRepository.findAll();
-
+    //tüm kategorileri alabilir hem de isimle filtreleme
+    public List<GetListCategoryResponse> getList(String name){
+        List<Category> categories;
+        if(name == null || name.isEmpty()){
+            categories = categoryRepository.findAll();
+        } else {
+            categories = categoryRepository.findByName(name);
+        }
         return categoryMapper.toGetListCategoryResponse(categories);
     }
 

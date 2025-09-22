@@ -18,9 +18,9 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping
-    public List<GetListCategoryResponse> getList(){
-        return categoryService.getList();
+    @GetMapping("/listCategory")
+    public List<GetListCategoryResponse> getList(@RequestParam(required = false) String name){
+        return categoryService.getList(name);
     }
 
     @GetMapping("/{id}")
@@ -28,7 +28,7 @@ public class CategoryController {
         return categoryService.getById(id);
     }
 
-    @PostMapping
+    @PostMapping("/createCategory")
     public CreatedCategoryResponse add(@Valid @RequestBody CreateCategoryRequest createCategoryRequest){
         return categoryService.add(createCategoryRequest);
     }
@@ -38,7 +38,7 @@ public class CategoryController {
         return categoryService.updateCategory(updateCategoryRequest);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public DeletedCategoryResponse deletedCategory(@PathVariable int id){
         return categoryService.deletedCategory(id);
     }

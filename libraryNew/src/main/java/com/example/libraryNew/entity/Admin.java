@@ -14,6 +14,7 @@ public class Admin {
     private int id;
     private String name;
     private String mail;
+    private String password;
     private String role;
 
     @OneToMany(mappedBy = "admin")
@@ -70,5 +71,13 @@ public class Admin {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
