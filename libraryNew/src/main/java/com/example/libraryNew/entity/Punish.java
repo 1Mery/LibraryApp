@@ -9,6 +9,7 @@ public class Punish {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double tutar;
+    boolean paid;
 
     @ManyToOne
     @JoinColumn(name = "borrow_id",nullable = false)
@@ -48,5 +49,13 @@ public class Punish {
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
     }
 }

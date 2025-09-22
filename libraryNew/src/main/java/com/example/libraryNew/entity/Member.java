@@ -1,20 +1,28 @@
 package com.example.libraryNew.entity;
 
+import com.example.libraryNew.enums.MemberLevel;
+import com.example.libraryNew.enums.MemberStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-@Table(name = "Üyeler")
+@Table(name = "Members")
 public class Member {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name ;
-    private String mail;
+    private String email;
+    private String password;
     private int tel;
+    @Enumerated(EnumType.STRING)
+    private MemberLevel memberLevel;
+
+    @Enumerated(EnumType.STRING)
+    private MemberStatus memberStatus;
 
     @OneToMany(mappedBy = "member")
     @JsonIgnore
@@ -91,12 +99,12 @@ public class Member {
         this.name = name;
     }
 
-    public String getMail() {
-        return mail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public int getTel() {
@@ -105,5 +113,29 @@ public class Member {
 
     public void setTel(int tel) {
         this.tel = tel;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public MemberLevel getMemberLevel() {
+        return memberLevel;
+    }
+
+    public void setMemberLevel(MemberLevel memberLevel) {
+        this.memberLevel = memberLevel;
+    }
+
+    public MemberStatus getMemberStatus() {
+        return memberStatus;
+    }
+
+    public void setMemberStatus(MemberStatus memberStatus) {
+        this.memberStatus = memberStatus;
     }
 }
