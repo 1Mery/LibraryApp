@@ -1,6 +1,6 @@
 package com.example.libraryNew.rules;
 
-import com.example.libraryNew.core.exceptions.type.BusinessException;
+import com.example.libraryNew.core.exception.type.BusinessException;
 import com.example.libraryNew.entity.Category;
 import com.example.libraryNew.repository.CategoryRepository;
 import org.springframework.stereotype.Component;

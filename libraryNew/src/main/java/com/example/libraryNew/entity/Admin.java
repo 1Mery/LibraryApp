@@ -1,5 +1,6 @@
 package com.example.libraryNew.entity;
 
+import com.example.libraryNew.enums.AdminRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -13,9 +14,10 @@ public class Admin {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String mail;
+    private String email;
     private String password;
-    private String role;
+    @Enumerated(EnumType.STRING)
+    private AdminRole role;
 
     @OneToMany(mappedBy = "admin")
     @JsonIgnore
@@ -49,20 +51,20 @@ public class Admin {
         this.id = id;
     }
 
-    public String getRole() {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public AdminRole getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(AdminRole role) {
         this.role = role;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
     }
 
     public String getName() {

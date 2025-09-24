@@ -1,7 +1,7 @@
-package com.example.libraryNew.core.exceptions;
+package com.example.libraryNew.core.exception;
 
-import com.example.libraryNew.core.exceptions.detail.ExcepitonDetail;
-import com.example.libraryNew.core.exceptions.type.BusinessException;
+import com.example.libraryNew.core.exception.detail.ExcepitonDetail;
+import com.example.libraryNew.core.exception.type.BusinessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;

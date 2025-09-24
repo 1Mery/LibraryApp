@@ -1,6 +1,6 @@
 package com.example.libraryNew.controller;
 
-import com.example.libraryNew.core.exceptions.type.BusinessException;
+import com.example.libraryNew.core.exception.type.BusinessException;
 import com.example.libraryNew.dto.request.member.CreateMemberRequest;
 import com.example.libraryNew.dto.request.member.UpdateMemberRequest;
 import com.example.libraryNew.dto.response.member.CreatedMemberResponse;

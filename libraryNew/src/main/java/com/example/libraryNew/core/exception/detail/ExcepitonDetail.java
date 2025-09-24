@@ -1,4 +1,4 @@
-package com.example.libraryNew.core.exceptions.detail;
+package com.example.libraryNew.core.exception.detail;
 
 public class ExcepitonDetail {
 

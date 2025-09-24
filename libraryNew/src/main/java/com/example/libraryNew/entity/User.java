@@ -2,22 +2,24 @@ package com.example.libraryNew.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Pattern;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
-@Table(name="Kullanıcılar")
+@Table(name="users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="email")
-    private String email;
-    @Column(name="password")
-    private int password;
-    @Column(name="role")
+    private String username;
+    @Column(nullable = false)
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$", message = "Invalid password")
+    private String password;
     private String role;
 
     @ManyToOne
@@ -27,6 +29,22 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "admin_id",nullable = false)
     private Admin admin;
+
+    @ManyToMany(fetch = FetchType.EAGER) // Bir kullanıcıyı çekerken rollerinin de hemen yüklenmesini sağlar.
+    @JoinTable(
+            name = "user_operation_claims", // Veritabanında oluşturulacak ara tablonun adı.
+            joinColumns = @JoinColumn(name = "user_id"), // Bu ara tabloda User'ı temsil eden kolon.
+            inverseJoinColumns = @JoinColumn(name = "operation_claim_id") // Bu ara tabloda OperationClaim'i temsil eden kolon.
+    )
+    private Set<OperationClaim> operationClaims;
+
+    public Set<OperationClaim> getOperationClaims() {
+        return operationClaims;
+    }
+
+    public void setOperationClaims(Set<OperationClaim> operationClaims) {
+        this.operationClaims = operationClaims;
+    }
 
 
     public Member getMember() {
@@ -61,22 +79,19 @@ public class User {
         this.id = id;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
+    public String getUsername() {
+        return username;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
-
-    
-
 }
