@@ -56,7 +56,7 @@ public class MemberService {
     }
 
     public List<GetListMemberResponse> getListMemberStatus(MemberStatus memberStatus,String email){
-        List<Member> members = memberRepository.findByMemberStatusAndMail(memberStatus,email);
+        List<Member> members = memberRepository.findByMemberStatusAndEmail(memberStatus,email);
 
         return memberMapper.toGetListMemberResponse(members);
     }

@@ -2,7 +2,9 @@ package com.example.libraryNew.rules;
 
 import com.example.libraryNew.core.exception.type.BusinessException;
 import com.example.libraryNew.repository.AdminRepositroy;
+import org.springframework.stereotype.Component;
 
+@Component
 public class AdminBusinessRule {
 
     private final AdminRepositroy adminRepositroy;
